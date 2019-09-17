@@ -1,11 +1,24 @@
+import hashlib
+
+
 def main():
-	Linkdein()
-	Eharmony()
-	formspring()
+	Linkdein()   #SHA1 Pepper
+	Eharmony()   #MD5
+	formspring() #SHA256 salt
+
+def word2hash(string1,mode):
+	if(mode=="MD5"):
+		result=hashlib.md5(str.encode())
+	elif(mode=="SHA1"):
+		result=hashlib.sha1(str.encode())
+	elif(mode=="SHA256"):
+		result=hashlib.sha256(str.encode())
+	return result.hexdigest()
 
 def Eharmony():
 	count = 0
-
+	filepointerr = open("eharmony\ passwords.txt")
+	print(filepointerr.readline)
 def formspring():
 	count = 0
 
@@ -19,6 +32,9 @@ def Linkedin(state1):
 		content = fp.readline()
 
 	print "LINKDIN COUNT",count 
+	
+def formspring():
+	count = 0
 
 def Remover(): #I saw that there are ones that begin with 0, which doesn't look natural
 	count=0
